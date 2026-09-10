@@ -44,8 +44,8 @@ Largest categories
 Requires Python 3.12 or newer.
 
 ```bash
-git clone https://github.com/Rydenb/Storage-cleaner
-cd Storage-cleaner
+git clone https://github.com/Rydenb/spaceai
+cd spaceai
 python -m venv .venv
 source .venv/bin/activate        # Windows: .venv\Scripts\activate
 pip install -e ".[dev]"
