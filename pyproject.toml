@@ -1,0 +1,52 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "spaceai"
+version = "0.1.0"
+description = "AI-powered disk cleanup and system analysis CLI"
+readme = "README.md"
+requires-python = ">=3.12"
+license = { text = "MIT" }
+authors = [{ name = "SpaceAI contributors" }]
+keywords = ["disk", "cleanup", "storage", "cli", "ai"]
+classifiers = [
+    "Environment :: Console",
+    "Intended Audience :: System Administrators",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: System :: Filesystems",
+]
+dependencies = [
+    "typer>=0.12",
+    "rich>=13.7",
+    "pydantic>=2.7",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0", "pytest-cov>=5.0", "mypy>=1.10", "ruff>=0.5"]
+
+[project.scripts]
+spaceai = "spaceai.main:main"
+
+[project.urls]
+Homepage = "https://github.com/Rydenb/Storage-cleaner"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/spaceai"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+files = ["src/spaceai"]
